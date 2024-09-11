@@ -5,11 +5,8 @@ import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { VisuallyHiddenInput } from '../styles/StyledComponents';
 import { useFormState } from '../hooks/useFormState';
 
-
-
 const Login = () => {
   const [isLogin, setIsLogin] = React.useState(true);
-  
   const initialState = {
     username: { value: '', error: '' },
     password: { value: '', error: '' },
@@ -21,19 +18,15 @@ const Login = () => {
   };  
 
   const [state, handleChange, validateForm] = useFormState(initialState);
-
   const toggleLogin = () => {
     setIsLogin((prev) => !prev);
   }
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log('Form submitted successfully:', state);
-    }
-
-  }
+    }}
 
   return (
     <Container component={'main'} maxWidth='xs' sx={{ height: isLogin === true ? "100vh" : "130vh", display: "flex", justifyContent: "center", alignItems: "center", justifyItems: "center", justifyContent: "center" }} >
@@ -64,7 +57,6 @@ const Login = () => {
                     </>
                   </IconButton>
                 </Stack>
-
                 <TextField required fullWidth label="Name" margin='normal' variant='outlined' name='name' value={state.name.value} onChange={handleChange} />
                 {state.name.error && <Typography color='error' variant='caption' >{state.name.error}</Typography>}
                 <TextField required fullWidth label="Bio" margin='normal' variant='outlined' name='bio' value={state.bio.value} onChange={handleChange} />
